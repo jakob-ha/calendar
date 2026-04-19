@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:calendar/pages/first.dart';
+import 'package:calendar/pages/second.dart';
+import 'package:calendar/pages/third.dart';
 
 void main() {
   runApp(
@@ -115,78 +118,6 @@ class SharedHeader extends StatelessWidget {
   }
 }
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final controller = TextEditingController();
-
-    return Scaffold(
-      appBar: AppBar(title: const Text('First Page')),
-      body: Column(
-        children: [
-          const SharedHeader(),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: TextField(
-              controller: controller,
-              decoration: const InputDecoration(
-                labelText: 'Enter text',
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              context.read<AppState>().updateText(controller.text);
-            },
-            child: const Text('Submit'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      initialIndex: 1,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Second Page'),
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: 'Big'),
-              Tab(text: 'Medium'),
-              Tab(text: 'Small'),
-            ],
-          ),
-        ),
-        body: const Column(
-          children: [
-            SharedHeader(),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  ItemList(fontSize: 24),
-                  ItemList(fontSize: 16),
-                  ItemList(fontSize: 12),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class ItemList extends StatelessWidget {
   final double fontSize;
 
@@ -257,32 +188,6 @@ class ItemList extends StatelessWidget {
               Navigator.pop(context);
             },
             child: const Text('Add'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ThirdPage extends StatelessWidget {
-  const ThirdPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final state = context.watch<AppState>();
-    final isDark = state.themeMode == ThemeMode.dark;
-
-    return Scaffold(
-      appBar: AppBar(title: const Text('Third Page')),
-      body: Column(
-        children: [
-          const SharedHeader(),
-          SwitchListTile(
-            title: const Text('Dark Mode'),
-            value: isDark,
-            onChanged: (value) {
-              context.read<AppState>().toggleTheme(value);
-            },
           ),
         ],
       ),
