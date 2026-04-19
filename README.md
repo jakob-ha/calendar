@@ -1,16 +1,35 @@
 # calendar
 
-A new Flutter project.
+## Project goals
 
-## Getting Started
+### Musts
 
-This project is a starting point for a Flutter application.
+Self made events OR open API imported events.
 
-A few resources to get you started if this is your first Flutter project:
+Make OR import events.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Delete.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Offline OR online.
+
+### Should
+
+Self made events AND open API imported events.
+
+Make AND import events.
+
+Edit.
+
+Offline AND online.
+
+General persistence. 
+
+### Nice
+
+Online/Offline state resolution when connecting after offline use.
+
+User log-ins.
+
+User groups / event list subscriptions.
+
+Auth, roles, ownership.
