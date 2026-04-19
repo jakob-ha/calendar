@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:calendar/main.dart';
+import 'package:calendar/components/shared_header.dart';
+import 'package:calendar/components/item_list.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
