@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:calendar/components/shared_header.dart';
 import 'package:calendar/components/item_list.dart';
+import 'package:calendar/components/event_mini.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -29,7 +30,7 @@ class SecondPage extends StatelessWidget {
                 children: [
                   ItemList(fontSize: 24),
                   ItemList(fontSize: 16),
-                  ItemList(fontSize: 12),
+                  EventMini(),
                 ],
               ),
             ),
