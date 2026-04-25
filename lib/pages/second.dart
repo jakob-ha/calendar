@@ -18,7 +18,7 @@ class SecondPage extends StatelessWidget {
             tabs: [
               Tab(text: 'Big'),
               Tab(text: 'Medium'),
-              Tab(text: 'Small'),
+              Tab(text: 'EventMini'),
             ],
           ),
         ),

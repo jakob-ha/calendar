@@ -4,29 +4,15 @@
 
 ### Musts
 
-Self made events OR open API imported events.
-
-Make OR import events.
-
-Delete.
-
-Offline OR online.
+Self made, deletable events in monthly and weekly view.
 
 ### Should
 
-Self made events AND open API imported events.
+Browsable and searchable imported events.
 
-Make AND import events.
-
-Edit.
-
-Offline AND online.
-
-General persistence. 
+Persistence. Edit.
 
 ### Nice
-
-Online/Offline state resolution when connecting after offline use.
 
 User log-ins.
 
