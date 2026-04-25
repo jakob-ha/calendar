@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:calendar/main.dart';
+
 
 class EventMini  extends StatelessWidget {
   const EventMini({super.key});
