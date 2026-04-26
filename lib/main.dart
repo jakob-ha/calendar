@@ -4,11 +4,14 @@ import 'package:calendar/pages/first.dart';
 import 'package:calendar/pages/second.dart';
 import 'package:calendar/pages/third.dart';
 
+import 'models/event.dart';
+
 void main() {
   runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => AppState()),
+          ChangeNotifierProvider(create: (_) => EventProvider()),
         ],
         child: const MyApp(),
       )
@@ -39,6 +42,35 @@ class AppState extends ChangeNotifier {
 
   void toggleTheme(bool isDark) {
     themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+}
+
+class EventProvider extends ChangeNotifier {
+  final List<Event> _events = [];
+  DateTimeRange? _filterRange;
+
+  List<Event> get events {
+    if (_filterRange == null) return [..._events];
+
+    return _events.where((event) {
+      return event.start.isAfter(_filterRange!.start) &&
+          event.start.isBefore(_filterRange!.end);
+    }).toList();
+  }
+
+  void addEvent(Event event) {
+    _events.add(event);
+    notifyListeners();
+  }
+
+  void deleteEvent(Event event) {
+    _events.remove(event);
+    notifyListeners();
+  }
+
+  void setFilter(DateTimeRange? range) {
+    _filterRange = range;
     notifyListeners();
   }
 }
