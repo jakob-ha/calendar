@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:calendar/main.dart';
 import 'package:calendar/components/shared_header.dart';
 
-class ThirdPage extends StatelessWidget {
-  const ThirdPage({super.key});
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

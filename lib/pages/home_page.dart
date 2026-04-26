@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:calendar/main.dart';
 import 'package:calendar/components/shared_header.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

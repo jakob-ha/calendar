@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:calendar/pages/first.dart';
-import 'package:calendar/pages/second.dart';
-import 'package:calendar/pages/third.dart';
+import 'package:calendar/pages/home_page.dart';
+import 'package:calendar/pages/events_page.dart';
+import 'package:calendar/pages/settings_page.dart';
 
 import 'models/event.dart';
 
@@ -111,9 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
 
   final pages = const [
-    FirstPage(),
-    SecondPage(),
-    ThirdPage(),
+    HomePage(),
+    EventsPage(),
+    SettingsPage(),
   ];
 
   @override
@@ -126,8 +126,8 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() => index = i);
         },
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.looks_one), label: 'First'),
-          NavigationDestination(icon: Icon(Icons.looks_two), label: 'Second'),
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.calendar_today), label: 'Events'),
           NavigationDestination(icon: Icon(Icons.looks_3), label: 'Third'),
         ],
       ),

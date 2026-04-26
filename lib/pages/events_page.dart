@@ -5,8 +5,8 @@ import 'package:calendar/components/event_mini.dart';
 
 import '../components/event_screen.dart';
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+class EventsPage extends StatelessWidget {
+  const EventsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
