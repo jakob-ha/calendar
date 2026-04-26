@@ -82,7 +82,17 @@ Future<void> _addEvent(BuildContext context) async {
 
   if (endTime == null) return;
 
-  final selectedDate = now; // you can add date picker if needed
+  DateTime? selectedDate;
+
+  if (context.mounted) {
+    selectedDate = await showDatePicker(
+          context: context,
+          firstDate: DateTime(2020),
+          lastDate: DateTime(2100)
+      );
+  }
+
+  if (selectedDate == null) return;
 
   final start = DateTime(
     selectedDate.year,
