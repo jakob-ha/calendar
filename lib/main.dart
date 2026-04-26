@@ -6,10 +6,13 @@ import 'package:calendar/pages/third.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AppState(),
-      child: const MyApp(),
-    ),
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => AppState()),
+        ],
+        child: const MyApp(),
+      )
+
   );
 }
 
