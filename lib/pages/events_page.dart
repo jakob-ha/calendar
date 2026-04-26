@@ -3,7 +3,7 @@ import 'package:calendar/components/shared_header.dart';
 import 'package:calendar/components/item_list.dart';
 import 'package:calendar/components/event_mini.dart';
 
-import '../components/event_screen.dart';
+import '../components/event_list.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});
@@ -31,7 +31,7 @@ class EventsPage extends StatelessWidget {
               child: TabBarView(
                 children: [
                   ItemList(fontSize: 24),
-                  EventScreen(),
+                  EventList(),
                   EventMini(),
                 ],
               ),
