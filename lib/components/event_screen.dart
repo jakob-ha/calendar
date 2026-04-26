@@ -71,10 +71,14 @@ Future<void> _addEvent(BuildContext context) async {
 
   if (startTime == null) return;
 
-  final endTime = await showTimePicker(
-    context: context,
-    initialTime: startTime,
-  );
+  TimeOfDay? endTime;
+
+  if (context.mounted) {
+    endTime = await showTimePicker(
+        context: context,
+        initialTime: startTime,
+      );
+  }
 
   if (endTime == null) return;
 
@@ -96,31 +100,33 @@ Future<void> _addEvent(BuildContext context) async {
     endTime.minute,
   );
 
-  await showDialog(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('Event name'),
-        content: TextField(controller: nameController),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
+  if (context.mounted) {
+    await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Event name'),
+            content: TextField(controller: nameController),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
 
-              context.read<EventProvider>().addEvent(
-                Event(
-                  name: nameController.text,
-                  start: start,
-                  end: end,
-                ),
-              );
-            },
-            child: const Text('Save'),
-          ),
-        ],
+                  context.read<EventProvider>().addEvent(
+                    Event(
+                      name: nameController.text,
+                      start: start,
+                      end: end,
+                    ),
+                  );
+                },
+                child: const Text('Save'),
+              ),
+            ],
+          );
+        },
       );
-    },
-  );
+  }
 }
 
 Future<void> _pickFilter(BuildContext context) async {
@@ -131,7 +137,7 @@ Future<void> _pickFilter(BuildContext context) async {
     lastDate: DateTime(2100),
   );
 
-  if (range != null) {
+  if (range != null && context.mounted) {
     context.read<EventProvider>().setFilter(range);
   }
 }

@@ -19,7 +19,7 @@ class EventMini  extends StatelessWidget {
           },
           child: const SizedBox(
             width: null,
-            height: null,
+            height: 50,
             child: Column(
               children: [
                 Text('data'),
