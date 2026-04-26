@@ -26,7 +26,7 @@ class EventScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () => _pickFilter(context),
-                child: const Text('Filter'),
+                child: const Text('Filter dates'),
               ),
             ],
           ),
@@ -62,26 +62,6 @@ class EventScreen extends StatelessWidget {
 Future<void> _addEvent(BuildContext context) async {
   final nameController = TextEditingController();
 
-  DateTime now = DateTime.now();
-
-  final startTime = await showTimePicker(
-    context: context,
-    initialTime: TimeOfDay.fromDateTime(now),
-  );
-
-  if (startTime == null) return;
-
-  TimeOfDay? endTime;
-
-  if (context.mounted) {
-    endTime = await showTimePicker(
-        context: context,
-        initialTime: startTime,
-      );
-  }
-
-  if (endTime == null) return;
-
   DateTime? selectedDate;
 
   if (context.mounted) {
@@ -93,6 +73,46 @@ Future<void> _addEvent(BuildContext context) async {
   }
 
   if (selectedDate == null) return;
+
+  DateTime now = DateTime.now();
+
+  TimeOfDay? startTime;
+
+  if (context.mounted) {
+    startTime = await showTimePicker(
+        context: context,
+        helpText: "Begins at:",
+        initialTime: TimeOfDay.fromDateTime(now),
+        initialEntryMode: TimePickerEntryMode.input,
+        builder: (BuildContext context, Widget? child) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+            child: child!,
+          );
+        },
+      );
+  }
+
+  if (startTime == null) return;
+
+  TimeOfDay? endTime;
+
+  if (context.mounted) {
+    endTime = await showTimePicker(
+      context: context,
+      helpText: "Ends at:",
+      initialTime: startTime,
+      initialEntryMode: TimePickerEntryMode.input,
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          child: child!,
+        );
+      },
+    );
+  }
+
+  if (endTime == null) return;
 
   final start = DateTime(
     selectedDate.year,
