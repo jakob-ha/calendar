@@ -1,7 +1,11 @@
 class Event {
-  String name;
-  DateTime start;
-  DateTime end;
+  final String name;
+  final DateTime start;
+  final DateTime end;
 
-  Event(this.name, this.start, this.end);
+  Event({
+    required this.name,
+    required this.start,
+    required this.end,
+  });
 }
