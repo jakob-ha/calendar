@@ -1,5 +1,6 @@
 import 'package:calendar/state_providers/app_state.dart';
 import 'package:calendar/state_providers/event_provider.dart';
+import 'package:calendar/state_providers/holiday_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:calendar/pages/home_page.dart';
@@ -14,10 +15,10 @@ void main() {
         providers: [
           ChangeNotifierProvider(create: (_) => AppState()),
           ChangeNotifierProvider(create: (_) => EventProvider()),
+          ChangeNotifierProvider(create: (_) => HolidayProvider()),
         ],
         child: const MyApp(),
       )
-
   );
 }
 
