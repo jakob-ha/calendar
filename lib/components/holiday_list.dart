@@ -124,7 +124,7 @@ Future<void> _pickFilter(BuildContext context) async {
   );
 
   if (range != null && context.mounted) {
-    context.read<EventProvider>().setFilter(range);
+    context.read<HolidayProvider>().setFilter(range);
   }
 }
 
