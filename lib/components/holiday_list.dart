@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/holiday.dart';
+import '../services/fetch_holidays.dart';
 import '../state_providers/event_provider.dart';
 import '../state_providers/holiday_provider.dart';
 import '../utils/date_format.dart';
@@ -28,6 +29,10 @@ class HolidayList extends StatelessWidget {
               ElevatedButton(
                 onPressed: () => _pickFilter(context),
                 child: const Text('Filter dates'),
+              ),
+              ElevatedButton(
+                onPressed: () => _getHolidaysFromAPI(context),
+                child: const Text('API'),
               ),
             ],
           ),
@@ -120,5 +125,19 @@ Future<void> _pickFilter(BuildContext context) async {
 
   if (range != null && context.mounted) {
     context.read<EventProvider>().setFilter(range);
+  }
+}
+
+Future<void> _getHolidaysFromAPI(BuildContext context) async {
+  final holidays = await fetchHolidays();
+  for (var o in holidays) {
+    if (context.mounted) {
+      context.read<HolidayProvider>().addHoliday(
+            Holiday(
+              name: o.name,
+              date: o.date,
+            ),
+          );
+    }
   }
 }
