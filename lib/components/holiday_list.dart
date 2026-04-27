@@ -5,6 +5,7 @@ import '../models/event.dart';
 import '../models/holiday.dart';
 import '../state_providers/event_provider.dart';
 import '../state_providers/holiday_provider.dart';
+import '../utils/date_format.dart';
 
 class HolidayList extends StatelessWidget {
   const HolidayList({super.key});
@@ -12,6 +13,7 @@ class HolidayList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<HolidayProvider>();
+    final DateFormat dateFormat = DateFormat();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Holidays')),
@@ -40,7 +42,7 @@ class HolidayList extends StatelessWidget {
                   child: ListTile(
                     title: Text(holiday.name),
                     subtitle: Text(
-                      '${holiday.date.day}  ${holiday.date.month}',
+                      '${holiday.date.day} ${dateFormat.monthNumberToString(holiday.date.month)}',
                     ),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
