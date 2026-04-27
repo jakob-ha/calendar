@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:calendar/main.dart';
 import 'package:calendar/components/shared_header.dart';
+
+import '../state_providers/app_state.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -12,7 +13,7 @@ class SettingsPage extends StatelessWidget {
     final isDark = state.themeMode == ThemeMode.dark;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Third Page')),
+      appBar: AppBar(title: const Text('Settings Page')),
       body: Column(
         children: [
           const SharedHeader(),

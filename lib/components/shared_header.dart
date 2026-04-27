@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:calendar/main.dart';
 
+import '../state_providers/app_state.dart';
+
 class SharedHeader extends StatelessWidget {
   const SharedHeader({super.key});
 

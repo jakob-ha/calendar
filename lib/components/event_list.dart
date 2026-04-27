@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../main.dart';
 import '../models/event.dart';
+import '../state_providers/event_provider.dart';
 
 class EventList extends StatelessWidget {
   const EventList({super.key});

@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:calendar/main.dart';
 import 'package:calendar/components/shared_header.dart';
 
+import '../state_providers/app_state.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -11,7 +13,7 @@ class HomePage extends StatelessWidget {
     final controller = TextEditingController();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('First Page')),
+      appBar: AppBar(title: const Text('Home Page')),
       body: Column(
         children: [
           const SharedHeader(),

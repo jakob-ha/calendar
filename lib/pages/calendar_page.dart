@@ -11,15 +11,16 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       initialIndex: 1,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Second Page'),
+          title: const Text('Calendar Page'),
           bottom: const TabBar(
             tabs: [
-              Tab(text: 'Big'),
-              Tab(text: 'Medium'),
+              Tab(text: 'Words'),
+              Tab(text: 'Events'),
+              Tab(text: 'EventMini'),
               Tab(text: 'EventMini'),
             ],
           ),
@@ -32,6 +33,7 @@ class EventsPage extends StatelessWidget {
                 children: [
                   ItemList(fontSize: 24),
                   EventList(),
+                  EventMini(),
                   EventMini(),
                 ],
               ),

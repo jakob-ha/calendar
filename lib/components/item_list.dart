@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:calendar/main.dart';
+
+import '../state_providers/app_state.dart';
 
 class ItemList extends StatelessWidget {
   final double fontSize;
