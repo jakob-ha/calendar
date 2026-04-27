@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/event.dart';
 import '../models/holiday.dart';
 import '../state_providers/event_provider.dart';
 import '../state_providers/holiday_provider.dart';

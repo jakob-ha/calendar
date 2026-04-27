@@ -7,8 +7,6 @@ import 'package:calendar/pages/home_page.dart';
 import 'package:calendar/pages/calendar_page.dart';
 import 'package:calendar/pages/settings_page.dart';
 
-import 'models/event.dart';
-
 void main() {
   runApp(
       MultiProvider(
