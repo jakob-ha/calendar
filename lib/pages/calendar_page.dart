@@ -4,6 +4,7 @@ import 'package:calendar/components/item_list.dart';
 import 'package:calendar/components/event_mini.dart';
 
 import '../components/event_list.dart';
+import '../components/holiday_list.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});
@@ -20,7 +21,7 @@ class EventsPage extends StatelessWidget {
             tabs: [
               Tab(text: 'Words'),
               Tab(text: 'Events'),
-              Tab(text: 'EventMini'),
+              Tab(text: 'Holidays'),
               Tab(text: 'EventMini'),
             ],
           ),
@@ -33,7 +34,7 @@ class EventsPage extends StatelessWidget {
                 children: [
                   ItemList(fontSize: 24),
                   EventList(),
-                  EventMini(),
+                  HolidayList(),
                   EventMini(),
                 ],
               ),
