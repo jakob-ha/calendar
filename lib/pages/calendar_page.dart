@@ -15,7 +15,7 @@ class EventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 5,
-      initialIndex: 1,
+      initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Calendar Page'),
