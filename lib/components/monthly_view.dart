@@ -13,6 +13,10 @@ class MonthlyView extends StatefulWidget {
 }
 
 class _MonthlyViewState extends State<MonthlyView> {
+  CalendarFormat _calendarFormat = CalendarFormat.month;
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +35,15 @@ class _MonthlyViewState extends State<MonthlyView> {
                     h.date.month == day.month &&
                     h.date.day == day.day;
               }).toList();
+            },
+            selectedDayPredicate: (day) {
+              return isSameDay(_selectedDay, day);
+            },
+            onDaySelected: (selectedDay, focusedDay) {
+              setState(() {
+                _selectedDay = selectedDay;
+                _focusedDay = focusedDay; // update `_focusedDay` here as well
+              });
             },
           ),
 
