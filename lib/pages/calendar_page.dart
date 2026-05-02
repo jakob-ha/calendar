@@ -1,4 +1,4 @@
-import 'package:calendar/components/monthly_view.dart';
+import 'package:calendar/components/table_view.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/components/shared_header.dart';
 import 'package:calendar/components/item_list.dart';
@@ -35,7 +35,7 @@ class EventsPage extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  MonthlyView(),
+                  TableView(),
                   EventList(),
                   HolidayList(),
                   EventMini(),

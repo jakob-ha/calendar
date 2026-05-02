@@ -5,14 +5,14 @@ import 'package:table_calendar/table_calendar.dart';
 import '../models/holiday.dart';
 import '../state_providers/holiday_provider.dart';
 
-class MonthlyView extends StatefulWidget {
-  const MonthlyView({super.key});
+class TableView extends StatefulWidget {
+  const TableView({super.key});
 
   @override
-  State<MonthlyView> createState() => _MonthlyViewState();
+  State<TableView> createState() => _TableViewState();
 }
 
-class _MonthlyViewState extends State<MonthlyView> {
+class _TableViewState extends State<TableView> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
@@ -42,7 +42,13 @@ class _MonthlyViewState extends State<MonthlyView> {
             onDaySelected: (selectedDay, focusedDay) {
               setState(() {
                 _selectedDay = selectedDay;
-                _focusedDay = focusedDay; // update `_focusedDay` here as well
+                _focusedDay = focusedDay;
+              });
+            },
+            calendarFormat: _calendarFormat,
+            onFormatChanged: (format) {
+              setState(() {
+                _calendarFormat = format;
               });
             },
           ),
