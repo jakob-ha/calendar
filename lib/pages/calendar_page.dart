@@ -14,7 +14,7 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 3,
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
@@ -24,8 +24,6 @@ class EventsPage extends StatelessWidget {
               Tab(text: 'Monthly'),
               Tab(text: 'Events'),
               Tab(text: 'Holidays'),
-              Tab(text: 'EventMini'),
-              Tab(text: 'Test'),
             ],
           ),
         ),
@@ -38,8 +36,6 @@ class EventsPage extends StatelessWidget {
                   TableView(),
                   EventList(),
                   HolidayList(),
-                  EventMini(),
-                  FetchingDemo(),
                 ],
               ),
             ),

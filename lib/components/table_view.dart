@@ -27,6 +27,8 @@ class _TableViewState extends State<TableView> {
             lastDay: DateTime.utc(2030, 12, 31),
             focusedDay: DateTime.now(),
 
+            startingDayOfWeek: StartingDayOfWeek.monday,
+
             eventLoader: (day) {
               final holidays = context.watch<HolidayProvider>().holidays;
 
