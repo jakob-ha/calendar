@@ -34,6 +34,19 @@ class _HolidayTableState extends State<HolidayTable> {
     super.dispose();
   }
 
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final events = context.watch<HolidayProvider>().holidays;
+    if (_selectedDay != null) {
+      _selectedHolidays.value = events
+          .where((h) => isSameDay(h.date, _selectedDay))
+          .toList();
+    }
+  }
+
   List<Holiday> _getHolidaysForDay(DateTime day) {
     return context.read<HolidayProvider>().holidays.where((h) => isSameDay(h.date, day)).toList() ?? [];
   }
@@ -109,6 +122,12 @@ class _HolidayTableState extends State<HolidayTable> {
                       child: ListTile(
                         onTap: () => print('${value[index]}'),
                         title: Text('${value[index]}'),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () {
+                            context.read<HolidayProvider>().deleteHoliday(value[index]);
+                          },
+                        ),
                       ),
                     );
                   },

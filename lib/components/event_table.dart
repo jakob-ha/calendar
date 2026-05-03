@@ -34,6 +34,18 @@ class _EventTableState extends State<EventTable> {
     super.dispose();
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final events = context.watch<EventProvider>().events;
+    if (_selectedDay != null) {
+      _selectedEvents.value = events
+          .where((h) => isSameDay(h.start, _selectedDay))
+          .toList();
+    }
+  }
+
   List<Event> _getEventsForDay(DateTime day) {
     // Implementation example
     return context.read<EventProvider>().events.where((h) => isSameDay(h.start, day)).toList() ?? [];
@@ -113,6 +125,12 @@ class _EventTableState extends State<EventTable> {
                     child: ListTile(
                       onTap: () => print('${value[index]}'),
                       title: Text('${value[index]}'),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () {
+                          context.read<EventProvider>().deleteEvent(value[index]);
+                        },
+                      ),
                     ),
                   );
                 },

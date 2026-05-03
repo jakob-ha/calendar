@@ -15,7 +15,7 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
@@ -24,7 +24,6 @@ class EventsPage extends StatelessWidget {
             tabs: [
               Tab(text: 'Holidays'),
               Tab(text: 'Events'),
-              Tab(text: 'Browse'),
               Tab(text: 'Browse Countries'),
             ],
           ),
@@ -37,7 +36,6 @@ class EventsPage extends StatelessWidget {
                 children: [
                   HolidayTable(),
                   EventTable(),
-                  HolidayList(),
                   CountryList(),
                 ],
               ),
