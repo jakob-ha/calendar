@@ -90,10 +90,6 @@ class _HolidayTableState extends State<HolidayTable> {
                 onPressed: () => addHoliday(context),
                 child: const Text('Add Holiday'),
               ),
-              ElevatedButton(
-                onPressed: () => getHolidaysFromAPI(context),
-                child: const Text('API'),
-              ),
             ],
           ),
 

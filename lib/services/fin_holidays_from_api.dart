@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import '../models/holiday.dart';
 import '../state_providers/holiday_provider.dart';
 
-Future<void> getHolidaysFromAPI(BuildContext context) async {
-  final holidays = await fetchHolidays();
+Future<void> getHolidaysFromAPI(BuildContext context, String countryCode) async {
+  final holidays = await fetchHolidays(countryCode);
   for (var o in holidays) {
     if (context.mounted) {
       context.read<HolidayProvider>().addHoliday(

@@ -3,13 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../models/event.dart';
-import '../models/holiday.dart';
-import '../services/fin_holidays_from_api.dart';
 import '../state_providers/event_provider.dart';
-import '../state_providers/holiday_provider.dart';
 
 import '../utils/add_event.dart';
-import '../utils/add_holiday.dart';
 
 class EventTable extends StatefulWidget {
   const EventTable({super.key});
