@@ -24,7 +24,7 @@ class EventsPage extends StatelessWidget {
             tabs: [
               Tab(text: 'Holidays'),
               Tab(text: 'Events'),
-              Tab(text: 'Browse Countries'),
+              Tab(text: 'Browse'),
             ],
           ),
         ),
