@@ -8,14 +8,14 @@ import '../state_providers/holiday_provider.dart';
 
 import '../utils/add_holiday.dart';
 
-class TableView extends StatefulWidget {
-  const TableView({super.key});
+class HolidayTable extends StatefulWidget {
+  const HolidayTable({super.key});
 
   @override
-  State<TableView> createState() => _TableViewState();
+  State<HolidayTable> createState() => _HolidayTableState();
 }
 
-class _TableViewState extends State<TableView> {
+class _HolidayTableState extends State<HolidayTable> {
   late final ValueNotifier<List<Holiday>> _selectedHolidays;
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
@@ -44,7 +44,7 @@ class _TableViewState extends State<TableView> {
   Widget build(BuildContext context) {
     return Column(
         children: [
-          TableCalendar<Holiday>(
+          TableCalendar(
             firstDay: DateTime.utc(2020, 1, 1),
             lastDay: DateTime.utc(2030, 12, 31),
             focusedDay: DateTime.now(),
