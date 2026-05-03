@@ -34,7 +34,7 @@ class _TableViewState extends State<TableView> {
 
   List<Holiday> _getHolidaysForDay(DateTime day) {
     // Implementation example
-    return context.read<HolidayProvider>().holidays ?? [];
+    return context.read<HolidayProvider>().holidays.where((h) => isSameDay(h.date, day)).toList() ?? [];
   }
 
   @override
