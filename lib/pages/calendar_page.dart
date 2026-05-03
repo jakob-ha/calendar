@@ -1,13 +1,12 @@
 import 'package:calendar/components/holiday_table.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/components/shared_header.dart';
-import 'package:calendar/components/item_list.dart';
-import 'package:calendar/components/event_mini.dart';
 
-import '../components/event_list.dart';
+
+
 import '../components/event_table.dart';
 import '../components/holiday_list.dart';
-import '../components/test.dart';
+
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});
