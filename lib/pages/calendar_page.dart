@@ -5,6 +5,7 @@ import 'package:calendar/components/item_list.dart';
 import 'package:calendar/components/event_mini.dart';
 
 import '../components/event_list.dart';
+import '../components/event_table.dart';
 import '../components/holiday_list.dart';
 import '../components/test.dart';
 
@@ -21,9 +22,9 @@ class EventsPage extends StatelessWidget {
           title: const Text('Calendar Page'),
           bottom: const TabBar(
             tabs: [
-              Tab(text: 'Monthly'),
-              Tab(text: 'Events'),
               Tab(text: 'Holidays'),
+              Tab(text: 'Events'),
+              Tab(text: 'Browse'),
             ],
           ),
         ),
@@ -34,7 +35,7 @@ class EventsPage extends StatelessWidget {
               child: TabBarView(
                 children: [
                   HolidayTable(),
-                  EventList(),
+                  EventTable(),
                   HolidayList(),
                 ],
               ),
