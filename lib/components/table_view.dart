@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../models/holiday.dart';
+import '../services/fin_holidays_from_api.dart';
 import '../state_providers/holiday_provider.dart';
 
 import '../utils/add_holiday.dart';
@@ -82,9 +83,18 @@ class _TableViewState extends State<TableView> {
 
           const SizedBox(height: 8),
 
-          ElevatedButton(
-            onPressed: () => addHoliday(context),
-            child: const Text('Add Holiday'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () => addHoliday(context),
+                child: const Text('Add Holiday'),
+              ),
+              ElevatedButton(
+                onPressed: () => getHolidaysFromAPI(context),
+                child: const Text('API'),
+              ),
+            ],
           ),
 
           const SizedBox(height: 8),
