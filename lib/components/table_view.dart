@@ -13,10 +13,29 @@ class TableView extends StatefulWidget {
 }
 
 class _TableViewState extends State<TableView> {
+  late final ValueNotifier<List<Holiday>> _selectedHolidays;
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
+  @override
+  void initState() {
+    super.initState();
+
+    _selectedDay = _focusedDay;
+    _selectedHolidays = ValueNotifier(_getHolidaysForDay(_selectedDay!));
+  }
+
+  @override
+  void dispose() {
+    _selectedHolidays.dispose();
+    super.dispose();
+  }
+
+  List<Holiday> _getHolidaysForDay(DateTime day) {
+    // Implementation example
+    return context.read<HolidayProvider>().holidays ?? [];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +65,7 @@ class _TableViewState extends State<TableView> {
                 _selectedDay = selectedDay;
                 _focusedDay = focusedDay;
               });
+              _selectedHolidays.value = _getHolidaysForDay(selectedDay);
             },
             calendarFormat: _calendarFormat,
             onFormatChanged: (format) {
@@ -53,9 +73,39 @@ class _TableViewState extends State<TableView> {
                 _calendarFormat = format;
               });
             },
+            onPageChanged: (focusedDay) {
+              _focusedDay = focusedDay;
+            },
           ),
 
           const SizedBox(height: 8),
+
+          Expanded(
+            child: ValueListenableBuilder<List<Holiday>>(
+              valueListenable: _selectedHolidays,
+              builder: (context, value, _) {
+                return ListView.builder(
+                  itemCount: value.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                        vertical: 4.0,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: ListTile(
+                        onTap: () => print('${value[index]}'),
+                        title: Text('${value[index]}'),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
         ],
       );
   }
