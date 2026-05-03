@@ -6,4 +6,7 @@ class Holiday {
     required this.name,
     required this.date,
   });
+
+  @override
+  String toString() => name;
 }
