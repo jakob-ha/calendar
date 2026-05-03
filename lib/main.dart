@@ -64,6 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     context.read<HolidayProvider>().loadHolidays();
+    context.read<EventProvider>().loadEvents();
+    context.read<AppState>().loadState();
 
     return Scaffold(
       body: pages[index],
