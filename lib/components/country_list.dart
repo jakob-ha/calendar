@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../dto/country_dto.dart';
 import '../services/fetch_countries.dart';
-import '../services/holidays_from_api_by_countrycode.dart';
+import '../services/get_holidays_by_countrycode.dart';
 
 class CountryList extends StatefulWidget {
   const CountryList({super.key});

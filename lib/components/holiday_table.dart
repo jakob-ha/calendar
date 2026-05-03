@@ -35,7 +35,6 @@ class _HolidayTableState extends State<HolidayTable> {
   }
 
   List<Holiday> _getHolidaysForDay(DateTime day) {
-    // Implementation example
     return context.read<HolidayProvider>().holidays.where((h) => isSameDay(h.date, day)).toList() ?? [];
   }
 
@@ -46,13 +45,10 @@ class _HolidayTableState extends State<HolidayTable> {
           TableCalendar(
             firstDay: DateTime.utc(2020, 1, 1),
             lastDay: DateTime.utc(2030, 12, 31),
-            focusedDay: DateTime.now(),
-
+            focusedDay: _focusedDay,
             startingDayOfWeek: StartingDayOfWeek.monday,
-
             eventLoader: (day) {
               final holidays = context.watch<HolidayProvider>().holidays;
-
               return holidays.where((h) {
                 return h.date.year == day.year &&
                     h.date.month == day.month &&
