@@ -5,6 +5,8 @@ import 'package:table_calendar/table_calendar.dart';
 import '../models/holiday.dart';
 import '../state_providers/holiday_provider.dart';
 
+import '../utils/add_holiday.dart';
+
 class TableView extends StatefulWidget {
   const TableView({super.key});
 
@@ -76,6 +78,13 @@ class _TableViewState extends State<TableView> {
             onPageChanged: (focusedDay) {
               _focusedDay = focusedDay;
             },
+          ),
+
+          const SizedBox(height: 8),
+
+          ElevatedButton(
+            onPressed: () => addHoliday(context),
+            child: const Text('Add Holiday'),
           ),
 
           const SizedBox(height: 8),

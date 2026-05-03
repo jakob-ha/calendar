@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../models/holiday.dart';
 import '../services/fetch_holidays.dart';
-import '../state_providers/event_provider.dart';
 import '../state_providers/holiday_provider.dart';
 import '../utils/date_format.dart';
 
