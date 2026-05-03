@@ -4,6 +4,7 @@ import 'package:calendar/components/shared_header.dart';
 
 
 
+import '../components/country_list.dart';
 import '../components/event_table.dart';
 import '../components/holiday_list.dart';
 
@@ -14,7 +15,7 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
@@ -24,6 +25,7 @@ class EventsPage extends StatelessWidget {
               Tab(text: 'Holidays'),
               Tab(text: 'Events'),
               Tab(text: 'Browse'),
+              Tab(text: 'Browse Countries'),
             ],
           ),
         ),
@@ -36,6 +38,7 @@ class EventsPage extends StatelessWidget {
                   HolidayTable(),
                   EventTable(),
                   HolidayList(),
+                  CountryList(),
                 ],
               ),
             ),

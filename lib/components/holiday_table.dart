@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../models/holiday.dart';
-import '../services/fin_holidays_from_api.dart';
 import '../state_providers/holiday_provider.dart';
 
 import '../utils/add_holiday.dart';
