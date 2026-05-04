@@ -5,7 +5,7 @@ import '../dto/country_dto.dart';
 
 Future<List<CountryDTO>> fetchCountries() async {
   final url = Uri.parse(
-    'https://date.nager.at//api/v3/AvailableCountries',
+    'https://date.nager.at/api/v3/AvailableCountries',
   );
 
   final response = await http.get(url);
