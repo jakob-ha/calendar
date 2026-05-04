@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +14,8 @@ Future<void> addEvent(BuildContext context) async {
     selectedDate = await showDatePicker(
         context: context,
         firstDate: DateTime(2020),
-        lastDate: DateTime(2100)
+        lastDate: DateTime(2100),
+        locale: const Locale('en', 'GB'),
     );
   }
 

@@ -13,7 +13,8 @@ Future<void> addHoliday(BuildContext context) async {
     selectedDate = await showDatePicker(
         context: context,
         firstDate: DateTime(2020),
-        lastDate: DateTime(2100)
+        lastDate: DateTime(2100),
+        locale: const Locale('en', 'GB'),
     );
   }
 

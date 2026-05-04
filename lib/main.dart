@@ -2,6 +2,7 @@ import 'package:calendar/state_providers/app_state.dart';
 import 'package:calendar/state_providers/event_provider.dart';
 import 'package:calendar/state_providers/holiday_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:calendar/pages/home_page.dart';
 import 'package:calendar/pages/calendar_page.dart';
@@ -40,6 +41,10 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: Colors.blue,
         brightness: Brightness.dark,
       ),
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      supportedLocales: const [
+        Locale('en', 'Gb'),
+      ],
       home: const HomeScreen(),
     );
   }
