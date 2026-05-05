@@ -6,7 +6,6 @@ import 'package:calendar/components/shared_header.dart';
 
 import '../components/country_list.dart';
 import '../components/event_table.dart';
-import '../components/holiday_list.dart';
 
 
 class EventsPage extends StatelessWidget {
