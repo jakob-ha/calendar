@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       ),
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       supportedLocales: const [
-        Locale('en', 'Gb'),
+        Locale('en', 'GB'),
       ],
       home: const HomeScreen(),
     );
